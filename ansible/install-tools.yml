@@ -1,0 +1,21 @@
+---
+- hosts: gcpservers
+
+  become: yes
+
+  tasks:
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+
+    - name: Install kubectl
+      apt:
+        name: kubectl
+        state: present
